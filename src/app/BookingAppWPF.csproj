@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="logo\**" />
+    <EmbeddedResource Remove="logo\**" />
+    <None Remove="logo\**" />
+    <Page Remove="logo\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="assets\logo.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\database-initializer\BookingModel.cs" Link="BookingModel.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="assets\logo.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.1" />
+  </ItemGroup>
+
+</Project>
